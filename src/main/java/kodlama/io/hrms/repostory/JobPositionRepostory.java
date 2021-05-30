@@ -10,7 +10,6 @@ import kodlama.io.hrms.entities.concretes.JobSeeker;
 public interface JobPositionRepostory extends JpaRepository<JobPosition, Integer>{
 	
     List<JobPosition> findAllByJobPositionName(String jobPositionName);
-    //yorum
 
 
 }
