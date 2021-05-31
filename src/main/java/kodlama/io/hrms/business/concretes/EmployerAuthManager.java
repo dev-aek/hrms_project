@@ -39,6 +39,20 @@ public class EmployerAuthManager extends AuthManager  implements EmployerAuthSer
 	        }
 	        return true;
 	}
-	
 
-}
+	@Override
+	public boolean checkWebSiteMail(Employer employer) {
+
+	        String[] dizi = employer.getMail().split("@");
+	        String email=dizi[1];
+
+	        String[] dizi2 = employer.getWebSite().split("www.");
+	        String domain =dizi2[1];
+
+	        if(email==domain) {
+	            return true;
+	        }
+	        return false;
+	    }
+	}
+

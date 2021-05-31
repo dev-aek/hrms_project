@@ -6,5 +6,6 @@ public interface EmployerAuthService {
 	boolean checkCompanyName(Employer employer);
 	boolean checkPhoneNumber(Employer employer);
 	boolean checkWebSite(Employer employer);
+	boolean checkWebSiteMail(Employer employer);
 	
 }

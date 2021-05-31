@@ -36,8 +36,11 @@ public class EmployerManager implements EmployerService{
         else if(!employerAuthManager.checkWebSite(employer)) {
             return new ErrorDataResult<Employer>("Website adresiniz geçersiz!");
         }
+        else if (employerAuthManager.checkWebSiteMail(employer)) {
+            return new ErrorDataResult<Employer>("Mailiniz Web Site domaininize ait olmalı!");
+		}
         else if(!employerAuthManager.checkEmail(employer.getMail())) {
-            return new ErrorDataResult<Employer>("Mail geçersiz!");
+            return new ErrorDataResult<Employer>("Mail boş veya geçersiz tip");
         }
         else if(!employerAuthManager.checkPassword(employer)) {
             return new ErrorDataResult<Employer>("Şifre Geçersiz");

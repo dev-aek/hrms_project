@@ -9,6 +9,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,6 +36,7 @@ public class User {
     @Column(name="confirm") 
     private boolean confirm;
     
+    @Autowired
     public User(String mail, String password) {
 		this.mail = mail;
 		this.password = password;

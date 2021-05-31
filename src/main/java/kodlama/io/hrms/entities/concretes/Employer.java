@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -29,6 +31,7 @@ public class Employer extends User{
    @Column(name="verify_system") 
     private boolean verifySystem;
 
+   @Autowired
 	public Employer(String mail, String password, String companyName, String phoneNumber, String webSite,
 			boolean verifySystem) {
 		super(mail, password);
