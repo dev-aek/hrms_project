@@ -48,5 +48,10 @@ public class EmployerController {
 	        return this.jobAdvertisementService.add(jobAdvertisement);
 	    }
 	    
+	    @GetMapping("/getallAdvertisement")
+		public  DataResult<List<JobAdvertisement>> getAllAdvertisement(){
+			return this.jobAdvertisementService.getAll();
+		}
+	   
 
 }

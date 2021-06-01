@@ -41,7 +41,7 @@ public class JobAdvertisement {
     @Column(name="creation_date")
     private java.util.Date creationDate;
     
-    @Column(name="is_active")
+    @Column(name="is_active",columnDefinition = "boolean default true")
     private Boolean isActive;
     
     @Column(name="min_salary")

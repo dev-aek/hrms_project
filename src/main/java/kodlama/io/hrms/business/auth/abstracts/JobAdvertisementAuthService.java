@@ -9,6 +9,7 @@ public interface JobAdvertisementAuthService {
 	boolean checkAdvertisementsDeadline(JobAdvertisement jobAdvertisement);
 	boolean checkCreationDate(JobAdvertisement jobAdvertisement);
 	boolean checkSalary(JobAdvertisement jobAdvertisement);
+	boolean CheckIfNullField(JobAdvertisement jobAdvertisement);
 
 
 }
