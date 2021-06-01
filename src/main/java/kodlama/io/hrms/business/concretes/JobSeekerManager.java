@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlama.io.hrms.business.abstracts.JobSeekerService;
-
-
+import kodlama.io.hrms.business.auth.concretes.JobSeekerAuthManager;
 import kodlama.io.hrms.core.results.DataResult;
 import kodlama.io.hrms.core.results.ErrorDataResult;
 import kodlama.io.hrms.core.results.SuccessDataResult;
