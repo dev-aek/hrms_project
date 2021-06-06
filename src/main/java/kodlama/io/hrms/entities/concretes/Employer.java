@@ -42,7 +42,7 @@ public class Employer extends User{
    @Autowired
 	public Employer(String mail, String password, String companyName, String phoneNumber, String webSite,
 			boolean verifySystem) {
-		super(mail, password);
+		super(mail, password, verifySystem);
 		this.companyName = companyName;
 		this.phoneNumber = phoneNumber;
 		this.webSite = webSite;

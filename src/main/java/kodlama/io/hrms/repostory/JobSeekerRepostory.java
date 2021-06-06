@@ -11,5 +11,8 @@ public interface JobSeekerRepostory extends JpaRepository<JobSeeker, Integer> {
 	//List<JobSeeker> findAllByMail(String email);
 
     List<JobSeeker> findAllByNationalityId(String tcno);
+    
+	JobSeeker getById(int id);
+
 
 }
