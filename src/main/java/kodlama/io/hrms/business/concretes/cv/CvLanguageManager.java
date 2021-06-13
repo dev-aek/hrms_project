@@ -50,7 +50,9 @@ public class CvLanguageManager implements CvLanguageService{
 	@Override
 	public Result addLanguageToCv(Language language, int jobSeekerId) {
 		
-		JobSeeker jobSeeker = (JobSeeker) this.cvDao.getByJobSeekerId(jobSeekerId);
+		JobSeeker jobSeeker = this.jobSeekerDao.getById(jobSeekerId);
+
+		//JobSeeker jobSeeker = (JobSeeker) this.cvDao.getByJobSeekerId(jobSeekerId);
 		
 		Cv cv = this.cvDao.getByJobSeeker(jobSeeker);
 		

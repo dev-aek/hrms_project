@@ -2,6 +2,7 @@ package kodlama.io.hrms.entities.concretes;
 
 
 
+
 import java.util.List;
 
 import javax.persistence.Column;

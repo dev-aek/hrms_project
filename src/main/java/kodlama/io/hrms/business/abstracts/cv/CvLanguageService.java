@@ -9,7 +9,7 @@ import kodlama.io.hrms.entities.concretes.cv.Language;
 
 public interface CvLanguageService {
 
-DataResult<List<CvLanguage>> getAll();
+	DataResult<List<CvLanguage>> getAll();
 	
 	DataResult<List<CvLanguage>> getByCvId(int id);
 	

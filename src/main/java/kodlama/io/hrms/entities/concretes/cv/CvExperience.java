@@ -25,6 +25,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="job_seekers_experiences")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","cv"})
 public class CvExperience {
 
     @Id
@@ -47,9 +48,11 @@ public class CvExperience {
     @Column(name="is_quited")
 	private boolean isQuited;
 
-    @JsonProperty(access = Access.WRITE_ONLY)
-    @ManyToOne()
-    @JsonIgnoreProperties()
+ // @JsonProperty(access = Access.WRITE_ONLY)
+ // @JsonIgnoreProperties()
+    @ManyToOne(targetEntity = Cv.class)
+    @JsonIgnore()
     @JoinColumn(name="cv_id")
     private Cv cv;
+    
 }

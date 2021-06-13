@@ -37,9 +37,9 @@ public class CvEducationController {
 		return this.cvEducationService.update(cvEducation);
 	}
 	
-	@PostMapping("/add")
-	public Result add(@RequestBody CvEducation cvEducation) {
-		return this.cvEducationService.add(cvEducation);
+	@PostMapping("/addSchoolToCv")
+	public Result add(@RequestBody CvEducation cvEducation,@RequestParam int jobSeekerId) {
+		return this.cvEducationService.addSchoolToCv(cvEducation, jobSeekerId);
 	}
 	
 	@GetMapping("/getCandidateSchoolsByGraduationDateDesc")

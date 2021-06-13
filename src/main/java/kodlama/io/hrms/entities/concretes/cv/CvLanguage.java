@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -24,6 +25,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="job_seekers_languages")
+@EqualsAndHashCode(callSuper = false)
 public class CvLanguage {
 	
     @Id
@@ -31,14 +33,13 @@ public class CvLanguage {
     @Column(name = "id")
     private int id;
     
-
     @JsonProperty(access = Access.WRITE_ONLY)
     @ManyToOne(targetEntity = Cv.class)
     @JsonIgnore()
     @JoinColumn(name = "cv_id")
     private Cv cv;
     
-    @ManyToOne(targetEntity = Language.class)
+    @ManyToOne/*(targetEntity = Language.class)*/
 	@JoinColumn(name="langauges_id")
 	private Language language;
     

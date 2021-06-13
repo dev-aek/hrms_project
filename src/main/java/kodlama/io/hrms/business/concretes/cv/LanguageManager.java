@@ -21,6 +21,7 @@ public class LanguageManager implements LanguageService{
 	
 	@Autowired
 	public LanguageManager(LanguageDao languageDao) {
+		super();
 		this.languageDao = languageDao;
 	}
 	

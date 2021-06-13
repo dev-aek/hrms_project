@@ -48,6 +48,7 @@ public class CvSkillManager implements CvSkillService{
 
 	@Override
 	public Result addSkillToCv(Skill skill, int jobSeekerId) {
+		
 		JobSeeker jobSeeker = this.jobSeekerDao.getById(jobSeekerId);
 		
 		Cv cv = this.cvDao.getByJobSeeker(jobSeeker);

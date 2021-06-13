@@ -14,7 +14,7 @@ DataResult<List<CvEducation>> getAll();
 	
 	DataResult<CvEducation> update(CvEducation cvEducation);
 	
-	Result add(CvEducation cavSchool);
+	Result addSchoolToCv(CvEducation cvSchool, int jobSeekerId);
 	
 	DataResult<List<CvEducation>> orderCvEducationsByGraduationYearDesc(int id);
     //DataResult<List<CvEducation>> getAllByJobSeekerIdAndOrderingEndingYear(boolean isAscending, int jobSeekerId);

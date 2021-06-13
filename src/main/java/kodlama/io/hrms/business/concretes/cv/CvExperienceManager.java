@@ -3,9 +3,14 @@ package kodlama.io.hrms.business.concretes.cv;
 import kodlama.io.hrms.business.abstracts.cv.CvExperienceService;
 import kodlama.io.hrms.core.results.DataResult;
 import kodlama.io.hrms.core.results.ErrorDataResult;
+import kodlama.io.hrms.core.results.Result;
 import kodlama.io.hrms.core.results.SuccessDataResult;
+import kodlama.io.hrms.core.results.SuccessResult;
+import kodlama.io.hrms.dataAccess.abstracts.JobSeekerDao;
 import kodlama.io.hrms.dataAccess.abstracts.cv.CvDao;
 import kodlama.io.hrms.dataAccess.abstracts.cv.CvExperienceDao;
+import kodlama.io.hrms.entities.concretes.JobSeeker;
+import kodlama.io.hrms.entities.concretes.cv.Cv;
 import kodlama.io.hrms.entities.concretes.cv.CvExperience;
 
 import java.util.List;
@@ -18,13 +23,15 @@ public class CvExperienceManager implements CvExperienceService{
 
 	private CvExperienceDao cvExperienceDao;
 	private CvDao cvDao;
+	private JobSeekerDao jobSeekerDao;
 	
 	
 	@Autowired
-	public CvExperienceManager(CvExperienceDao cvExperienceDao, CvDao cvDao) {
+	public CvExperienceManager(CvExperienceDao cvExperienceDao, CvDao cvDao, JobSeekerDao jobSeekerDao) {
 		super();
 		this.cvExperienceDao = cvExperienceDao;
 		this.cvDao = cvDao;
+		this.jobSeekerDao = jobSeekerDao;
 	}
 
 	@Override
@@ -44,4 +51,19 @@ public class CvExperienceManager implements CvExperienceService{
 		return new ErrorDataResult<List<CvExperience>>("Cv ID Bulunamadı. ");
 	}
 
+	@Override
+	public Result addExperienceToCv(CvExperience cvExperience, int jobSeekerId) {
+		
+		JobSeeker jobSeeker = this.jobSeekerDao.getById(jobSeekerId);
+		
+		Cv cv = this.cvDao.getByJobSeeker(jobSeeker);
+		
+		//CvEducation cvEducation = new CvEducation(cv);
+		
+		cvExperience.setCv(cv);
+	
+		this.cvExperienceDao.save(cvExperience);
+		
+		return new SuccessResult("Eğitim eklendi.");
+	}
 	}
