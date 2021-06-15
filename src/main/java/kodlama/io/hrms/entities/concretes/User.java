@@ -48,4 +48,14 @@ public class User {
 		this.confirm = confirm;
 	}
     
+    @Autowired
+	public User(int id, String mail, String password, boolean confirm) {
+		super();
+		this.id = id;
+		this.mail = mail;
+		this.password = password;
+		this.confirm = confirm;
+	}
+    
+    
 }

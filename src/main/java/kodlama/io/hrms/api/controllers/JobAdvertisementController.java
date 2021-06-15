@@ -15,6 +15,7 @@ import kodlama.io.hrms.business.abstracts.JobAdvertisementService;
 import kodlama.io.hrms.core.results.DataResult;
 import kodlama.io.hrms.core.results.Result;
 import kodlama.io.hrms.entities.concretes.JobAdvertisement;
+import kodlama.io.hrms.entities.dtos.JobPostingAddDto;
 
 @CrossOrigin
 @RestController
@@ -36,9 +37,9 @@ public class JobAdvertisementController {
 	    }*/
 	
 	@PostMapping("/add_job_advertisement")
-	    public Result add(@RequestBody JobAdvertisement jobAdvertisement)
+	    public Result add(@RequestBody JobPostingAddDto jobPostingAddDto)
 	    {
-	        return this.jobAdvertisementService.add(jobAdvertisement);
+	        return this.jobAdvertisementService.add(jobPostingAddDto);
 	    }
 	 
 	@GetMapping("/getall")
@@ -52,6 +53,11 @@ public class JobAdvertisementController {
 		return this.jobAdvertisementService.getAllIsActiveJobAdvertisement();
 	}
 	
+	@GetMapping("/getAllIsPasiveJobAdvertList")
+	public DataResult<List<JobAdvertisement>> getAllIsPasiveJobAdvertisementList(){
+		return this.jobAdvertisementService.getAllIsPasiveJobAdvertisement();
+	}
+	
 	@GetMapping("/getbyid")
 	public DataResult<JobAdvertisement> getById(int id){
 		return this.jobAdvertisementService.getById(id);
@@ -63,10 +69,20 @@ public class JobAdvertisementController {
 		return this.jobAdvertisementService.changeActiveToPasive(id);
 	}
 	
+	@PostMapping("/changePasiveToActive")
+	public Result changePasiveToActive(int id){
+		return this.jobAdvertisementService.changePasiveToActive(id);
+	}
+	
 	
 	@GetMapping("/findAllByOrderByEmployerAt")
 	public DataResult<List<JobAdvertisement>> findByIsActiveTrueOrderByAdvertisementsDeadline (){
 		return this.jobAdvertisementService.findByIsActiveTrueOrderByAdvertisementsDeadline();
+	}
+	
+	@GetMapping("/findAllIsActiveFalseByOrderByEmployerAt")
+	public DataResult<List<JobAdvertisement>> findByIsActiveFalseOrderByAdvertisementsDeadline (){
+		return this.jobAdvertisementService.findByIsActiveFalseOrderByAdvertisementsDeadline();
 	}
 	
 	@GetMapping("/getAllOpenJobAdvertByEmployer")

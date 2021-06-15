@@ -48,6 +48,20 @@ public class Employer extends User{
 		this.webSite = webSite;
 		this.verifySystem = verifySystem;
 	}
+   
+   @Autowired
+   public Employer(int id, String mail, String password, boolean confirm, String companyName, String phoneNumber, String webSite,
+		boolean verifySystem) {
+	super(id,mail, password, confirm);
+	this.companyName = companyName;
+	this.phoneNumber = phoneNumber;
+	this.webSite = webSite;
+	this.verifySystem = verifySystem;
+}
+   
+   
+   
+   
     
     
 }

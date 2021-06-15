@@ -16,6 +16,7 @@ import kodlama.io.hrms.core.results.DataResult;
 import kodlama.io.hrms.core.results.Result;
 import kodlama.io.hrms.entities.concretes.Employer;
 import kodlama.io.hrms.entities.concretes.JobAdvertisement;
+import kodlama.io.hrms.entities.dtos.JobPostingAddDto;
 
 @CrossOrigin
 @RestController
@@ -45,9 +46,9 @@ public class EmployerController {
 	    }
 	    
 	    @PostMapping("/add_job_advertisement")
-	    public Result add(@RequestBody JobAdvertisement jobAdvertisement)
+	    public Result add(@RequestBody JobPostingAddDto jobPostingAddDto)
 	    {
-	        return this.jobAdvertisementService.add(jobAdvertisement);
+	        return this.jobAdvertisementService.add(jobPostingAddDto);
 	    }
 	    
 	    @GetMapping("/getallAdvertisement")

@@ -12,6 +12,9 @@ public interface JobAdvertisementRepostory extends JpaRepository<JobAdvertisemen
 	@Query("From JobAdvertisement where isActive = true")
 	List<JobAdvertisement> getAllActiveJobAdvertisementList();
 	
+	@Query("From JobAdvertisement where isActive = false")
+	List<JobAdvertisement> getAllPasiveJobAdvertisementList();
+	
 	//@Query("From JobAdvert where isOpen = true Order By publishedAt Desc")
 	List<JobAdvertisement>  findByIsActiveTrueOrderByAdvertisementsDeadline(); 
 		
@@ -19,5 +22,8 @@ public interface JobAdvertisementRepostory extends JpaRepository<JobAdvertisemen
 	List<JobAdvertisement> getByIsActiveAndEmployer_Id(boolean isActive, int employerId);
 		
 	JobAdvertisement getByJobAdvertisementId(int id);
+	
+	//@Query("From JobAdvert where isOpen = false Order By publishedAt Desc")
+	List<JobAdvertisement>  findByIsActiveFalseOrderByAdvertisementsDeadline();
 
 }
